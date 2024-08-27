@@ -1,5 +1,7 @@
 package controllers.auctions;
 
+import controllers.bids.Bid;
+import repositories.bids.BidRepository;
 import repositories.auctions.AuctionRepository;
 
 import java.util.List;
@@ -29,6 +31,9 @@ public class AuctionsResource {
 
     @Inject
     AuctionRepository auctionRepository;
+
+    @Inject
+    BidRepository bidRepository;
 
     @GET
     public List<Auction> getAllAuctions() {
@@ -68,5 +73,15 @@ public class AuctionsResource {
             throw new WebApplicationException("Auction with id of " + auction_id + " does not exist.", 404);
         }
         return auction;
+    }
+
+    @GET
+    @Path("/bids/highest")
+    public List<Bid> getAllHighestBids() {
+        try {
+            return bidRepository.getHighestAllAuctions();
+        } catch (Exception e) {
+            throw new WebApplicationException("No bids exist.", 404);
+        }
     }
 }
