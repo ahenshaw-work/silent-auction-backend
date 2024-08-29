@@ -1,12 +1,12 @@
 schemaVersion: 2.2.2
 metadata:
-  name: silent-auction-demo-backend
+  name: silent-auction-backend
 projects:
   - attributes: {}
-    name: silent-auction-demo-backend
+    name: silent-auction-backend
     git:
       remotes:
-        origin: https://github.com/ahussey-redhat/silent-auction-demo-backend.git
+        origin: https://github.com/ahussey-redhat/silent-auction-backend.git
 components:
   - name: universal-developer-image
     container:
@@ -29,12 +29,6 @@ commands:
       component: universal-developer-image
       commandLine: './mvnw compile quarkus:dev'
       label: run dev mode
-      workingDir: '${PROJECT_SOURCE}'
-  - id: build-and-deploy
-    exec:
-      component: universal-developer-image
-      commandLine: './mvnw install -Dquarkus.openshift.deploy=true'
-      label: build and deploy
       workingDir: '${PROJECT_SOURCE}'
   - id: prepare-for-release-dryrun
     exec:
