@@ -30,8 +30,8 @@ public class EntityManagerBidRepository implements BidRepository {
             bid.getId(),
             auction_id,
             user_id,
-            bid.getBid_time(),
-            bid.getBid_amount()
+            bid.getBidTime(),
+            bid.getBidAmount()
         );
     }
 

@@ -112,20 +112,20 @@ public class BidEntity {
         this.user = user;
     }
 
-    public LocalDateTime getBid_time() {
+    public LocalDateTime getBidTime() {
         return bid_time;
     }
 
-    public void setBid_time(LocalDateTime bid_time) {
+    public void setBidTime(LocalDateTime bid_time) {
         this.bid_time = bid_time;
     }
 
 
-    public int getBid_amount() {
+    public int getBidAmount() {
         return bid_amount;
     }
 
-    public void setBid_amount(int bid_amount) {
+    public void setBidAmount(int bid_amount) {
         this.bid_amount = bid_amount;
     }
 }

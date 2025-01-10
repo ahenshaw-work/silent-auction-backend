@@ -25,9 +25,9 @@ public class EntityManagerUserRepository implements UserRepository {
         return new User(
             user.getId(),
             user.getUsername(),
-            user.getFirst_name(),
-            user.getLast_name(),
-            user.getTable_number()
+            user.getFirstName(),
+            user.getLastName(),
+            user.getTableNumber()
         );
     }
 
