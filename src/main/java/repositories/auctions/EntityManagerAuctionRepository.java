@@ -23,12 +23,12 @@ public class EntityManagerAuctionRepository implements AuctionRepository {
     private static Auction mapEntityToAuction (AuctionEntity auction) {
         return new Auction(
             auction.getId(),
-            auction.getItem_name(),
+            auction.getItemName(),
             auction.getDescription(),
-            auction.getAuction_start(),
-            auction.getAuction_end(),
-            auction.getStarting_bid(),
-            auction.getImage_path()
+            auction.getAuctionStart(),
+            auction.getAuctionEnd(),
+            auction.getStartingBid(),
+            auction.getImagePath()
         );
     }
 
@@ -45,22 +45,22 @@ public class EntityManagerAuctionRepository implements AuctionRepository {
 
     private static void updateRequestToEntity (AuctionEntity auction, UpdateAuctionRequest request) {
         if (!request.item_name.isEmpty()) {
-            auction.setItem_name(request.item_name);
+            auction.setItemName(request.item_name);
         }
         if (!request.description.isEmpty()) {
             auction.setDescription(request.description);
         }
         if (request.auction_start != null) {
-           auction.setAuction_start(request.auction_start);
+           auction.setAuctionStart(request.auction_start);
         }
         if (request.auction_end != null) {
-            auction.setAuction_end(request.auction_end);
+            auction.setAuctionEnd(request.auction_end);
         }
         if (request.starting_bid != null) {
-            auction.setStarting_bid(request.starting_bid);
+            auction.setStartingBid(request.starting_bid);
         }
         if (!request.image_path.isEmpty()) {
-            auction.setImage_path(request.image_path);
+            auction.setImagePath(request.image_path);
         }
     }
 

@@ -68,11 +68,11 @@ public class AuctionEntity {
         this.id = id;
     }
 
-    public String getItem_name() {
+    public String getItemName() {
         return item_name;
     }
 
-    public void setItem_name(String item_name) {
+    public void setItemName(String item_name) {
         this.item_name = item_name;
     }
 
@@ -84,31 +84,31 @@ public class AuctionEntity {
         this.description = description;
     }
 
-    public LocalDateTime getAuction_start() {
+    public LocalDateTime getAuctionStart() {
         return auction_start;
     }
 
-    public void setAuction_start(LocalDateTime auction_start) {
+    public void setAuctionStart(LocalDateTime auction_start) {
         this.auction_start = auction_start;
     }
 
-    public LocalDateTime getAuction_end() {
+    public LocalDateTime getAuctionEnd() {
         return auction_end;
     }
 
-    public void setAuction_end(LocalDateTime auction_end) {
+    public void setAuctionEnd(LocalDateTime auction_end) {
         this.auction_end = auction_end;
     }
 
-    public Integer getStarting_bid() { return starting_bid; }
+    public Integer getStartingBid() { return starting_bid; }
 
-    public void setStarting_bid(Integer starting_bid) { this.starting_bid = starting_bid; }
+    public void setStartingBid(Integer starting_bid) { this.starting_bid = starting_bid; }
 
-    public String getImage_path() {
+    public String getImagePath() {
         return image_path;
     }
 
-    public void setImage_path(String image_path) {
+    public void setImagePath(String image_path) {
         this.image_path = image_path;
     }
 }
