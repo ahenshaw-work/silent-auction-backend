@@ -32,6 +32,9 @@ databaseChangeLog:
                   name:  auction_end
                   type:  timestamp
               - column:
+                  name: starting_bid
+                  type: int
+              - column:
                   name:  image_path
                   type:  varchar(255)
         - createTable:
@@ -49,6 +52,12 @@ databaseChangeLog:
                   type:  varchar(255)
                   constraints:
                     nullable:  false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+              - column:
+                  name: last_name
+                  type: varchar(255)
               - column:
                   name:  table_number
                   type:  int
@@ -102,3 +111,18 @@ databaseChangeLog:
             referencedTableName:  user_info
             referencedTableSchemaName:  auction
             validate:  true
+        -  createSequence:
+             incrementBy:  1
+             schemaName:  auction
+             sequenceName:  auctions_id_seq
+             startValue:  1
+        -  createSequence:
+             incrementBy:  1
+             schemaName:  auction
+             sequenceName:  bids_id_seq
+             startValue:  1
+        -  createSequence:
+             incrementBy:  1
+             schemaName:  auction
+             sequenceName:  user_info_id_seq
+             startValue:  1
