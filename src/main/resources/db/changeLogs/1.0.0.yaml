@@ -2,56 +2,56 @@
 databaseChangeLog:
   - changeSet:
       id:  1
-      author:  ahussey
+      author: ahussey
       labels: silent-auction
       context: silent-auction
       comment: create initial tables
       changes:
         - createTable:
-            tableName:  auctions
+            tableName: auctions
             columns:
               - column:
-                  name:  id
-                  type:  int
-                  autoIncrement:  true
+                  name: id
+                  type: int
+                  autoIncrement: true
                   constraints:
-                    primaryKey:  true
-                    nullable:  false
+                    primaryKey: true
+                    nullable: false
               - column:
-                  name:  item_name
-                  type:  varchar(255)
+                  name: item_name
+                  type: varchar(255)
                   constraints:
-                    nullable:  false
+                    nullable: false
               - column:
-                  name:  description
-                  type:  varchar(255)
+                  name: description
+                  type: varchar(255)
               - column:
-                  name:  auction_start
-                  type:  timestamp
+                  name: auction_start
+                  type: timestamp
               - column:
-                  name:  auction_end
-                  type:  timestamp
+                  name: auction_end
+                  type: timestamp
               - column:
                   name: starting_bid
                   type: int
               - column:
-                  name:  image_path
-                  type:  varchar(255)
+                  name: image_path
+                  type: varchar(255)
         - createTable:
-            tableName:  user_info
+            tableName: user_info
             columns:
               - column:
-                  name:  id
-                  type:  int
-                  autoIncrement:  true
+                  name: id
+                  type: int
+                  autoIncrement: true
                   constraints:
-                    primaryKey:  true
-                    nullable:  false
+                    primaryKey: true
+                    nullable: false
               - column:
-                  name:  username
-                  type:  varchar(255)
+                  name: username
+                  type: varchar(255)
                   constraints:
-                    nullable:  false
+                    nullable: false
               - column:
                   name: first_name
                   type: varchar(255)
@@ -59,70 +59,70 @@ databaseChangeLog:
                   name: last_name
                   type: varchar(255)
               - column:
-                  name:  table_number
-                  type:  int
+                  name: table_number
+                  type: int
         - createTable:
-            tableName:  bids
+            tableName: bids
             columns:
               - column:
-                  name:  id
-                  type:  int
-                  autoIncrement:  true
+                  name: id
+                  type: int
+                  autoIncrement: true
                   constraints:
-                    primaryKey:  true
-                    nullable:  false
+                    primaryKey: true
+                    nullable: false
               - column:
-                  name:  auction_id
-                  type:  int
+                  name: auction_id
+                  type: int
                   constraints:
-                    nullable:  false
+                    nullable: false
               - column:
-                  name:  user_id
-                  type:  int
+                  name: user_id
+                  type: int
               - column:
-                  name:  bid_time
-                  type:  timestamp
+                  name: bid_time
+                  type: timestamp
               - column:
-                  name:  bid_amount
-                  type:  int
+                  name: bid_amount
+                  type: int
         -  addForeignKeyConstraint:
-            baseColumnNames:  auction_id
-            baseTableName:  bids
-            baseTableSchemaName:  auction
-            constraintName:  fk_auction_id
-            deferrable:  true
-            initiallyDeferred:  true
-            onDelete:  CASCADE
-            onUpdate:  CASCADE
-            referencedColumnNames:  id
-            referencedTableName:  auctions
-            referencedTableSchemaName:  auction
-            validate:  true
+             baseColumnNames: auction_id
+             baseTableName: bids
+             baseTableSchemaName: auction
+             constraintName: fk_auction_id
+             deferrable: true
+             initiallyDeferred: true
+             onDelete: CASCADE
+             onUpdate: CASCADE
+             referencedColumnNames: id
+             referencedTableName: auctions
+             referencedTableSchemaName: auction
+             validate: true
         -  addForeignKeyConstraint:
-            baseColumnNames: user_id
-            baseTableName:  bids
-            baseTableSchemaName:  auction
-            constraintName:  fk_user_username
-            deferrable:  true
-            initiallyDeferred:  true
-            onDelete:  CASCADE
-            onUpdate:  CASCADE
-            referencedColumnNames: id
-            referencedTableName:  user_info
-            referencedTableSchemaName:  auction
-            validate:  true
+             baseColumnNames: user_id
+             baseTableName: bids
+             baseTableSchemaName: auction
+             constraintName: fk_user_username
+             deferrable: true
+             initiallyDeferred: true
+             onDelete: CASCADE
+             onUpdate: CASCADE
+             referencedColumnNames: id
+             referencedTableName: user_info
+             referencedTableSchemaName: auction
+             validate: true
         -  createSequence:
-             incrementBy:  1
-             schemaName:  auction
-             sequenceName:  auctions_id_seq
-             startValue:  1
+             incrementBy: 1
+             schemaName: auction
+             sequenceName: auctions_id_seq
+             startValue: 1
         -  createSequence:
-             incrementBy:  1
-             schemaName:  auction
-             sequenceName:  bids_id_seq
-             startValue:  1
+             incrementBy: 1
+             schemaName: auction
+             sequenceName: bids_id_seq
+             startValue: 1
         -  createSequence:
-             incrementBy:  1
-             schemaName:  auction
-             sequenceName:  user_info_id_seq
-             startValue:  1
+             incrementBy: 1
+             schemaName: auction
+             sequenceName: user_info_id_seq
+             startValue: 1

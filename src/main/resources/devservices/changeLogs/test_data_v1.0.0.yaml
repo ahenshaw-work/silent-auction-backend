@@ -14,17 +14,17 @@ databaseChangeLog:
                   name:  item_name
                   value: A Red Hat
               - column:
-                  name:  description
-                  value:  The famous Red Hat Fedora
+                  name: description
+                  value: The famous Red Hat Fedora
               - column:
-                  name:  auction_start
-                  value:  22-03-2025T00:01:00
+                  name: auction_start
+                  value: 22-03-2025T00:01:00
               - column:
-                  name:  auction_end
-                  value:  22-03-2026T23:59:00
+                  name: auction_end
+                  value: 22-03-2026T23:59:00
               - column:
                   name: starting_bid
                   value: 1000
               - column:
-                  name:  image_path
-                  value:  https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Red_Hat_logo.svg/384px-Red_Hat_logo.svg.png
+                  name: image_path
+                  value: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Red_Hat_logo.svg/384px-Red_Hat_logo.svg.png
