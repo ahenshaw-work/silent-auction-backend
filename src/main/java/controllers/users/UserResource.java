@@ -80,22 +80,16 @@ public class UserResource {
         if (user != null) {
             return Response.ok(user).status(200).build();
         } else {
-            throw new WebApplicationException("User mapping does not exist.", 404);
+            return Response.ok(
+                    userRepository.create(
+                            new CreateUserRequest(
+                                    securityIdentity.getPrincipal().getName(),
+                                    jwt.getClaim("given_name").toString(),
+                                    jwt.getClaim("family_name").toString(),
+                                    Integer.parseInt(jwt.getClaim("table_number").toString())
+                            )
+                    )
+            ).status(201).build();
         }
-    }
-
-    @POST
-    @Path("me")
-    @Transactional
-    public Response createMe(CreateMeRequest request) {
-        User user = userRepository.create(
-                new CreateUserRequest(
-                        securityIdentity.getPrincipal().getName(),
-                        jwt.getClaim("given_name").toString(),
-                        jwt.getClaim("family_name").toString(),
-                        Integer.parseInt(jwt.getClaim("table_number").toString())
-                )
-        );
-        return Response.ok(user).status(201).build();
     }
 }
