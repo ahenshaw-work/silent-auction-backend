@@ -3,6 +3,7 @@ package controllers.users;
 import repositories.users.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -80,13 +81,22 @@ public class UserResource {
         if (user != null) {
             return Response.ok(user).status(200).build();
         } else {
+            Integer tableNumber = Optional.ofNullable(jwt.getClaim("table_number"))
+                    .map(claim -> {
+                        try {
+                            return Integer.parseInt(claim.toString());
+                        } catch (NumberFormatException e) {
+                            return 99;
+                        }
+                    })
+                    .orElse(99);
             return Response.ok(
                     userRepository.create(
                             new CreateUserRequest(
                                     securityIdentity.getPrincipal().getName(),
                                     jwt.getClaim("given_name").toString(),
                                     jwt.getClaim("family_name").toString(),
-                                    Integer.parseInt(jwt.getClaim("table_number").toString())
+                                    tableNumber
                             )
                     )
             ).status(201).build();
