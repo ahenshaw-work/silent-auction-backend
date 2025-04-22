@@ -40,6 +40,7 @@ public class AuctionsResource {
         return auctionRepository.findAll();
     }
 
+    // TODO - Allow normal users to create an Auction. Handle TimeDate conversion to ensure it is UTC
     @POST
     @RolesAllowed("admin")
     @Transactional
