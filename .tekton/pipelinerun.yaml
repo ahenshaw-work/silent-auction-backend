@@ -7,7 +7,7 @@ metadata:
     pipelinesascode.tekton.dev/on-event: "[pull_request, push]"
     pipelinesascode.tekton.dev/on-target-branch: "[main]"
     pipelinesascode.tekton.dev/task: 'git-clone'
-    pipelinesascode.tekton.dev/task-1: '[buildah:0.5]'
+    pipelinesascode.tekton.dev/task-1: 'buildah'
     pipelinesascode.tekton.dev/task-2: '[https://github.com/ahussey-redhat/silent-auction-demo-infra/blob/main/.tekton/tasks/mvnw-build.yaml]'
     pipelinesascode.tekton.dev/task-3: '[https://github.com/ahussey-redhat/silent-auction-demo-infra/blob/main/.tekton/tasks/deploy.yaml]'
     pipelinesascode.tekton.dev/max-keep-runs: "2"
